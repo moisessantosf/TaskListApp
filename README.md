@@ -2,6 +2,8 @@
 
 ## Execução
 
+** Necessário possuir o Docker Desktop instalado (Windows) **
+
 Para executar o projeto, siga os passos abaixo:
 
 1. Clone o repositório:

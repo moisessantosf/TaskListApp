@@ -19,10 +19,24 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowTaskListAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") 
+                  .AllowAnyMethod()                    
+                  .AllowAnyHeader()                    
+                  .AllowCredentials();                 
+        });
+});
+
 builder.Services.AddScoped<ITaskItemService, TaskItemService>();
 builder.Services.AddScoped<ITaskItemRepository, TaskItemRepository>();
 
 var app = builder.Build();
+
+app.UseCors("AllowTaskListAngularApp");
 
 if (app.Environment.IsDevelopment())
 {

@@ -1,9 +1,17 @@
-version: '3.8'
 services:
+  frontend:
+    build:
+      context: ./task-list-app
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+
   api:
     build:
-        context: .
-        dockerfile: TaskListApp.API/Dockerfile
+      context: .
+      dockerfile: TaskListApp.API/Dockerfile
     ports:
       - "5000:80"
     depends_on:

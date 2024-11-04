@@ -18,7 +18,8 @@ Para executar o projeto, siga os passos abaixo:
    ```bash
    docker-compose up -d --build
    ```
+4. Frontend estará disponível em `http://localhost:4200/`.
 
-4. A API estará disponível em `http://localhost:5000`.
+5. A API estará disponível em `http://localhost:5000`.
 
-5. Swagger disponível em `http://localhost:5000/swagger`.
+6. Swagger disponível em `http://localhost:5000/swagger`.
